@@ -1,10 +1,11 @@
 FROM ubuntu:trusty
-MAINTAINER Fernando Mayo <fernando@tutum.co>, Feng Honglin <hfeng@tutum.co>
+MAINTAINER Alex Szymanik <github-firstcontact@calmconviction.com>
 
 # Install packages
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
-  apt-get -y install supervisor git apache2 libapache2-mod-php5 mysql-server php5-mysql pwgen php-apc php5-mcrypt
+  apt-get -y install supervisor subversion apache2 libapache2-mod-wsgi mysql-server \
+  python-pika python-pip python-memcache python-mysqldb
 
 # Add image configuration and scripts
 ADD start-apache2.sh /start-apache2.sh
